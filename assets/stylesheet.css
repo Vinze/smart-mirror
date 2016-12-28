@@ -1,25 +1,64 @@
 html, body {
     font-family: 'Montserrat', cursive;
-}
-
-body {
     margin: 0;
     padding: 0;
     background-color: #000;
     color: #fff;
+    height: 100%;
+    font-size: 20px;
 }
 
-div.clock {
+[v-cloak] {
+  display: none;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #B2B2B2;
+}
+
+.container {
+    // width: 1280px;
+    // height: 1024px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.clock {
     position: absolute;
     top: 30px;
     left: 30px;
     text-align: center;
 }
 
-div.time {
-    font-size: 9em;
+.clock .time {
+    font-size: 150px;
 }
 
-div.date {
-    font-size: 2.5em;
+.clock .date {
+    color: #B2B2B2;
+    font-size: 40px;
+}
+
+.news {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.news ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.news li {
+    margin-bottom: 10px;
+}
+
+.news time {
+    width: 60px;
+    display: inline-block;
+    color: #B2B2B2;
 }
