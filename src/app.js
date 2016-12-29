@@ -1,25 +1,35 @@
+var data = {
+    time: '',
+    date: '',
+    news: []
+};
+
+function updateTime() {
+    data.time = moment().format('HH:mm');
+    data.date = moment().format('dd D MMM YYYY');
+}
+
+function updateNews() {
+    axios.get('news').then(function(res) {
+        if ( ! res) return;
+        data.news = res.data;
+    });
+}
+
+setInterval(updateTime, 5 * 1000);
+
+setInterval(updateNews, 5 * 60 * 1000);
+
 new Vue({
     el: '#app',
-    data: {
-        time: '',
-        date: ''
-    },
+    data: data,
     methods: {
         fullscreen: function() {
             screenfull.toggle();
         }
     },
     created: function() {
-        this.time = moment().format('HH:mm');
-        this.date = moment().format('dd D MMM YYYY');
-
-        setInterval(function() {
-            this.time = moment().format('HH:mm');
-            this.date = moment().format('dd D MMM YYYY');
-        }.bind(this), 5000);
+        updateTime();
+        updateNews();
     }
 });
-
-// axios.get('http://www.nu.nl/rss').then(function(data) {
-//     console.log(data);
-// });

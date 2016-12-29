@@ -3,7 +3,7 @@
 <head>
     <title>SmartMirror</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="assets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
     <div id="app" class="container" v-cloak>
@@ -23,11 +23,7 @@
 
         <div class="news">
             <ul>
-                <li><time>23:55</time> Advocaat Theo Hiddema wil de politiek in</li>
-                <li><time>22:42</time> Dode en vermiste na omslaan vissersschip voor Britse kust </li>
-                <li><time>21:18</time> Dichte mist tijdens ochtendspits verwacht</li>
-                <li><time>19:28</time> 'Automatische rem in vrachtwagen voorkwam erger in Berlijn'</li>
-                <li><time>18:10</time> Française die gewelddadige man vermoordde vrij na pardon Hollande</li>
+                <li v-for="item in news"><time>{{ item.time }}</time> {{ item.title }}</li>
             </ul>
         </div>
 
@@ -38,6 +34,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/nl.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.0.2/screenfull.min.js"></script>
-    <script src="assets/app.min.js"></script>
+    <script src="app.min.js"></script>
 </body>
 </html>
