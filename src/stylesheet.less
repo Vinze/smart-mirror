@@ -1,0 +1,75 @@
+html, body {
+    font-family: 'Montserrat', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #B2B2B2;
+}
+
+.container {
+    // width: 1280px;
+    // height: 1024px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.clock, .weather, .news {
+    position: absolute;
+}
+
+.clock {
+    top: 30px;
+    left: 30px;
+    text-align: center;
+    .time {
+        font-size: 150px;
+        line-height: 1;
+    }
+
+    .date {
+        color: #B2B2B2;
+        font-size: 40px;
+    }
+}
+
+.weather {
+    top: 30px;
+    right: 30px;
+}
+
+.news {
+    bottom: 30px;
+    left: 30px;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    li {
+        margin-bottom: 10px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    time {
+        width: 60px;
+        display: inline-block;
+        color: #B2B2B2;
+    }
+}
