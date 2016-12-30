@@ -19,12 +19,22 @@ h1 {
     color: #B2B2B2;
 }
 
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
 .container {
     // width: 1280px;
     // height: 1024px;
     height: 100%;
     position: relative;
     margin: 0 auto;
+    // cursor: none;
 }
 
 .clock, .weather, .news {
@@ -35,20 +45,36 @@ h1 {
     top: 30px;
     left: 30px;
     text-align: center;
+    cursor: pointer;
     .time {
-        font-size: 150px;
+        font-size: 120px;
         line-height: 1;
     }
-
     .date {
         color: #B2B2B2;
-        font-size: 40px;
+        font-size: 35px;
     }
 }
 
 .weather {
     top: 30px;
     right: 30px;
+    .clearfix;
+
+    .item {
+        text-align: center;
+        float: left;
+        display: inline-block;
+    }
+
+    .day {
+        font-size: 30px;
+        color: #b2b2b2;
+    }
+
+    .icon img {
+        width: 48px;
+    }
 }
 
 .news {
@@ -59,17 +85,17 @@ h1 {
         padding: 0;
         list-style-type: none;
     }
-
     li {
         margin-bottom: 0;
         &:last-child {
             margin-bottom: 0;
         }
     }
-
     time {
         width: 60px;
         display: inline-block;
         color: #B2B2B2;
+        padding-right: 5px;
+        text-align: right;
     }
 }

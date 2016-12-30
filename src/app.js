@@ -6,7 +6,7 @@ var data = {
 
 function updateTime() {
     data.time = moment().format('HH:mm');
-    data.date = moment().format('dd D MMM YYYY');
+    data.date = moment().format('dd D MMM YYYY').toLowerCase();
 }
 
 function updateNews() {

@@ -3,6 +3,7 @@ var app = express();
 var request = require('request');
 var xml2js = require('xml2js');
 var moment = require('moment');
+var _ = require('lodash');
 
 app.use(express.static('assets'));
 
@@ -12,15 +13,24 @@ app.get('/news', function (req, res) {
 
     request.get(url, function(error, response, body) {
         xml2js.parseString(body, function (err, result) {
-            var parsed = result.rss.channel[0].item.map(function(item) {
+            var items = _.map(result.rss.channel[0].item, function(item) {
+                var pubDate = moment(item.pubDate[0], 'ddd, DD MMM YYYY HH:mm:ss');
+
                 return {
                     title: item.title[0],
-                    time: moment(item.pubDate[0], 'ddd, DD MMM YYYY HH:mm:ss').format('HH:mm'),
+                    time: pubDate.format('HH:mm'),
+                    timestamp: pubDate.unix(),
                     url: item.link[0]
                 };
             });
+
+            items= _.sortBy(items, 'timestamp');
+
+            items = _.reverse(items, 5);
+
+            items = _.take(items, 5);
             
-            res.json(parsed.slice(0, 6));
+            res.json(items);
         });
     });
 

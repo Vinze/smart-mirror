@@ -26,7 +26,7 @@ gulp.task('build-js', function () {
 
 gulp.task('start-server', function() {
     nodemon({
-        script: 'app.js',
+        script: 'server.js',
         ignore: ['assets', 'src']
     });
 })
