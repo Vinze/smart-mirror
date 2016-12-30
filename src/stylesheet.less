@@ -19,13 +19,15 @@ h1 {
     color: #B2B2B2;
 }
 
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
+.clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
 }
 
 .container {
@@ -62,9 +64,13 @@ h1 {
     .clearfix;
 
     .item {
+        margin-bottom: 20px;
         text-align: center;
-        float: left;
-        display: inline-block;
+        // display: inline-block;
+        // float: left;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     .day {
